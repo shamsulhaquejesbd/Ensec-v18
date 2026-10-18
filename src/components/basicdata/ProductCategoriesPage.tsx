@@ -164,7 +164,18 @@ export const ProductCategoriesPage: React.FC = () => {
               Product Categories Registry
             </h1>
           </div>
+          <p className="text-xs text-slate-500 mt-1">
+            Master battery product categories, market classifications, and segments
+          </p>
         </div>
+        <button
+          type="button"
+          onClick={handleOpenCreateCategory}
+          className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer self-start sm:self-auto"
+        >
+          <PlusCircle className="w-4 h-4" />
+          <span>+ Add Product Category</span>
+        </button>
       </div>
 
       {/* KPI Cards */}

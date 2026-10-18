@@ -872,7 +872,6 @@ END $$;
 -- 1. Product Categories Seeds
 INSERT INTO public.product_categories (code, name, description, status)
 VALUES
-  ('CAT-TEL', 'Telecom Energy Storage', '48V rack-mount LiFePO4 battery modules for telecom BTS towers, data centers, and ISP hubs.', 'Active'),
   ('CAT-SOL', 'Solar Home System', '12.8V & 25.6V high-cycle lithium storage for off-grid residential and commercial solar installations.', 'Active'),
   ('CAT-EV', 'EV & E-Rickshaw', '60V & 72V traction battery packs for Bangladeshi electric three-wheelers and commercial light EVs.', 'Active'),
   ('CAT-IND', 'Commercial & Industrial', 'High-voltage and multi-megawatt containerized BESS solutions for manufacturing plants and spinning mills.', 'Active'),

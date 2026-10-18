@@ -271,8 +271,10 @@ interface ERPContextType {
   deleteDistributor?: (distId: string) => Promise<{ success: boolean; error?: string; isRemoteSynced: boolean }> | any;
   refreshDistributors?: () => Promise<void>;
   customers: Customer[];
-  addCustomer: (cust: Omit<Customer, 'id' | 'outstandingBalanceBDT'>) => void;
-  updateCustomer: (customerId: string, updates: Partial<Customer>) => void;
+  addCustomer: (cust: Omit<Customer, 'id' | 'outstandingBalanceBDT'>) => Promise<{ success: boolean; id: string; error?: string; isRemoteSynced: boolean }> | any;
+  updateCustomer: (customerId: string, updates: Partial<Customer>) => Promise<{ success: boolean; error?: string; isRemoteSynced: boolean }> | any;
+  deleteCustomer?: (customerId: string) => Promise<{ success: boolean; error?: string; isRemoteSynced: boolean }> | any;
+  refreshCustomers?: () => Promise<void>;
   customerCategories: CustomerCategory[];
   addCustomerCategory: (category: Omit<CustomerCategory, 'id'>) => any;
   updateCustomerCategory: (categoryId: string, updates: Partial<CustomerCategory>) => any;
@@ -608,7 +610,12 @@ export const ERPProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [primaryReturnRecords, setPrimaryReturnRecords] = useState<PrimaryReturnRecord[]>(INITIAL_PRIMARY_RETURNS);
   const [stockAdjustmentRecords, setStockAdjustmentRecords] = useState<StockAdjustmentRecord[]>(INITIAL_STOCK_ADJUSTMENTS);
   const [distributors, setDistributors] = useState<Distributor[]>(INITIAL_DISTRIBUTORS);
-  const [customers, setCustomers] = useState<Customer[]>(INITIAL_CUSTOMERS);
+  const [customers, setCustomers] = useState<Customer[]>(() => {
+    if (typeof window !== 'undefined' && checkSupabaseConfigured()) {
+      return [];
+    }
+    return INITIAL_CUSTOMERS;
+  });
   const [customerCategories, setCustomerCategories] = useState<CustomerCategory[]>(() => {
     if (typeof window !== 'undefined' && checkSupabaseConfigured()) {
       return [];

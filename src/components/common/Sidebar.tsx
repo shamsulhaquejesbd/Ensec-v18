@@ -184,7 +184,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             { id: 'basic-data-brands', label: 'Product Brands', icon: Award },
             { id: 'basic-data-warehouses', label: 'Warehouse', icon: Warehouse },
             { id: 'basic-data-distributors', label: 'Distributor Mgt', icon: Users2 },
-            { id: 'basic-data-customers', label: 'Customer Directory', icon: Contact2 },
+            { id: 'basic-data-customers', label: 'Customer', icon: Contact2 },
             { id: 'basic-data-pricing-matrix', label: 'Customer Categories', icon: Tag },
             { id: 'basic-data-org-hierarchy', label: 'Org Hierarchy', icon: Network },
             { id: 'basic-data-field-force', label: 'Field Force', icon: Users },

@@ -281,8 +281,18 @@ export const ProductBrandsPage: React.FC = () => {
               Product Brands & Line Identity
             </h1>
           </div>
-          
+          <p className="text-xs text-slate-500 mt-1">
+            Manage trademarked battery product brands, market positioning, and category tags
+          </p>
         </div>
+        <button
+          type="button"
+          onClick={handleOpenCreateBrand}
+          className="flex items-center gap-2 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer self-start sm:self-auto"
+        >
+          <PlusCircle className="w-4 h-4" />
+          <span>+ Add Product Brand</span>
+        </button>
       </div>
 
       {/* KPI Cards */}
